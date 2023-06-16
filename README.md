@@ -40,7 +40,7 @@ Replace `[repository-name]` with a unique name for each repository, `source` wit
 5. Run the following command to start the cloning process:
 
 ```
-gint
+ginz
 ```
 
 Ginz will read the configuration file, clone the specified repositories, and display progress updates during the cloning process.
