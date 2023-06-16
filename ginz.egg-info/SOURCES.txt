@@ -1,0 +1,11 @@
+LICENSE
+setup.py
+ginz/__init__.py
+ginz/__main__.py
+ginz/repo.py
+ginz/tree.py
+ginz.egg-info/PKG-INFO
+ginz.egg-info/SOURCES.txt
+ginz.egg-info/dependency_links.txt
+ginz.egg-info/entry_points.txt
+ginz.egg-info/top_level.txt
