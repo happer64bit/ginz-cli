@@ -1,0 +1,6 @@
+[ginz-cli-main]
+source = "https://github.com/happer64bit/ginz-cli"
+
+[ginz-cli-dev]
+source = "https://github.com/happer64bit/ginz-cli"
+branch = "dev"
