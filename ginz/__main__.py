@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
     root_tree = tree.TreeNode("Cloned Directory")
 
-    with open("GInt.toml") as config_file:
+    with open("GInz.toml") as config_file:
         config = toml.load(config_file)
 
         for section_name, section in config.items():
