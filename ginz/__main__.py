@@ -2,7 +2,7 @@ import argparse
 import toml
 import sys
 
-import tree
+from .algo import tree
 
 from tqdm import tqdm
 from git import Repo, RemoteProgress
