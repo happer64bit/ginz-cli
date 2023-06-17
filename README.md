@@ -19,7 +19,7 @@ Ginz is a command-line tool for cloning multiple repositories from GitHub based 
 ### Via `pip`
 
 ```sh
-pip install -e git+https://github.com/happer64bit/ginz-cli#egg=ginz
+pip install git+https://github.com/happer64bit/ginz-cli
 ```
 
 ## Usage

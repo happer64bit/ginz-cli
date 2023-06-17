@@ -20,7 +20,7 @@ jobs:
         python-version: 3.11.3
 
     - name: Install dependencies
-      run: pip install -e git+https://github.com/happer64bit/ginz-cli#egg=ginz
+      run: pip install git+https://github.com/happer64bit/ginz-cli#egg=ginz
 
     - name: Run the pip package
       run: python -m ginz
