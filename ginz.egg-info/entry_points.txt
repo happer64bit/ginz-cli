@@ -1,2 +1,0 @@
-[console_scripts]
-ginz = ginz.__main__:main
