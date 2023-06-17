@@ -16,10 +16,10 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.10  # Replace 'x' with the desired Python version
+        python-version: 3.11.3
 
     - name: Install dependencies
       run: pip install -e git+https://github.com/happer64bit/ginz-cli  # Replace '<package-name>' with the name of the package you want to install
 
     - name: Run the pip package
-      run: python -m ginz  # Replace '<package-name>' with the name of the package you want to run
+      run: python -m ginz
