@@ -1,3 +1,3 @@
-wheel
-bar
-greek
+toml
+git
+colorama

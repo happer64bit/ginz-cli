@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+ginz/__init__.py
+ginz/__main__.py
+ginz/repo.py
+ginz.egg-info/PKG-INFO
+ginz.egg-info/SOURCES.txt
+ginz.egg-info/dependency_links.txt
+ginz.egg-info/requires.txt
+ginz.egg-info/top_level.txt
