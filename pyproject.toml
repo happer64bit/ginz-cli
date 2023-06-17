@@ -1,0 +1,25 @@
+[build-system]
+requires = ["poetry>=1.1.0"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "ginz-cli"
+version = "0.1.0"
+description = "Ginz is a command-line tool for cloning multiple repositories from GitHub based on a configuration file. It simplifies the process of cloning multiple repositories by allowing you to specify the repositories and their branches in a single configuration file."
+authors = ["Happer64Bit happer64bit@gmail.com"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[build-system]
+requires = ["poetry-core>=1.1.0"]
+build-backend = "poetry.core.masonry.api"
+
+[build-system.scripts]
+my-script = "ginz_cli:main"
+
+[build-system.requires]
+python = "^3.9"
+
+[build-system.files]
+include = ["requirement.txt"]
