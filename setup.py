@@ -14,6 +14,6 @@ setup(
     author_email='happer64bit@gmail.com',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=["toml", "GitPython", "colorama", "tqdm"],
+    install_requires=["toml", "GitPython", "colorama", "tqdm", "request"],
     package_directory="ginz",
 )

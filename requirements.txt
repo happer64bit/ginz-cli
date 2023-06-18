@@ -1,4 +1,5 @@
 toml
 colorama
-git
+gitpython
 tqdm
+request
