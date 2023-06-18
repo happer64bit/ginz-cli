@@ -53,6 +53,8 @@ Ginz supports the following command-line options:
 
 - `--version` or `-v`: Prints the version of Ginz.
 - `--help` or `-h`: Displays help information and usage instructions.
+- `--refetch` : Update All Repo in `Ginz.toml`
+- `--config-url <url>` : Fetch Config and run
 
 ## Example
 
