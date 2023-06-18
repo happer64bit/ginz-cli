@@ -59,8 +59,13 @@ if __name__ == "__main__":
 
     root_tree = TreeNode("Cloned Directory")
 
+<<<<<<< HEAD
     if args.config_url:
         import requests
+=======
+    with open("GInz.toml") as config_file:
+        config = toml.load(config_file)
+>>>>>>> origin/main
 
         try:
             response = requests.get(args.config_url)
@@ -68,6 +73,7 @@ if __name__ == "__main__":
 
             config_content = response.text
 
+<<<<<<< HEAD
             # Parse the downloaded TOML configuration
             config = toml.loads(config_content)
             for section_name, section in config.items():
@@ -102,4 +108,6 @@ if __name__ == "__main__":
         child_node = TreeNode(f"{section_name} (branch: \x1b[3m {Fore.YELLOW}*{branch}*) {Fore.RESET} {Style.NORMAL}")
         root_tree.add_child(child_node)
 
+=======
+>>>>>>> origin/main
     root_tree.print_tree()
