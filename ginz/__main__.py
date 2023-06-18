@@ -1,12 +1,15 @@
-import argparse
-import toml
+import os
 import sys
-
-from .algo import tree
+import toml
+import argparse
 
 from tqdm import tqdm
-from git import Repo, RemoteProgress
-from colorama import Fore, Style
+from git import Repo, RemoteProgress, cmd
+from colorama import Fore, Style, Back
+
+import tree
+
+TreeNode = tree.TreeNode
 
 class CloneProgress(RemoteProgress):
     def __init__(self):
@@ -20,25 +23,86 @@ class CloneProgress(RemoteProgress):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    
     parser.add_argument("--version", "-v", action="store_true", help="Print Out Version")
+    
+    parser.add_argument("--config-url", help="Fetch Config From Server And Run")
+
+    parser.add_argument("--refetch", action="store_true",help="ReFetch Repositories")
+
     args = parser.parse_args()
+
+    if args.refetch:
+        print(f"{Back.YELLOW} THIS IS A EXPERIMENTAL FEATURE {Back.RESET}")
+        print(f"{Back.YELLOW} USE AT YOUR OWN RISK           {Back.RESET}")
+
+        print(f"{Fore.YELLOW}fetching metadatas....{Fore.RESET}")
+        
+        try:
+            with open("Ginz.toml") as file:
+                config = toml.loads(file.read())
+                for section_name, section in config.items():
+                    try:
+                        dir = cmd.Git(section_name)
+                        dir.pull()
+
+                        print(f"{Fore.GREEN}Updated {Back.GREEN}{section_name}{Back.RESET}{Fore.RESET}")
+                    except OSError:
+                        print(f"{Fore.RED}{section_name} doesn't exists skipping. {Fore.RESET}")
+        except FileNotFoundError:
+            print(f"{Fore.RED}FileNotFound: Ginz.toml file not found {Fore.RESET}")
+            sys.exit(1)
+
+        print(f"{Fore.GREEN}Updated All Repo{Fore.RESET}")
+        sys.exit()
 
     if args.version:
         print(f"{Fore.YELLOW} v1.0.0 {Fore.RESET}")
         sys.exit()
 
-    root_tree = tree.TreeNode("Cloned Directory")
+    root_tree = TreeNode("Cloned Directory")
 
-    with open("GInt.toml") as config_file:
-        config = toml.load(config_file)
+    if args.config_url:
+        import requests
 
-        for section_name, section in config.items():
-            branch = section.get("branch")
-            if branch is None:
-                branch = "main"
-            repo = Repo.clone_from(url=section.get("source"), to_path=section_name, progress=CloneProgress(), branch=branch)
+        try:
+            response = requests.get(args.config_url)
+            response.raise_for_status()
 
-            child_node = tree.TreeNode(f"{section_name} (branch: \x1b[3m {Fore.YELLOW}*{branch}*) {Fore.RESET} {Style.NORMAL}")
-            root_tree.add_child(child_node)
+            config_content = response.text
+
+            # Parse the downloaded TOML configuration
+            config = toml.loads(config_content)
+            for section_name, section in config.items():
+                branch = section.get("branch")
+                if branch is None:
+                    branch = "main"
+                repo = Repo.clone_from(url=section.get("source"), to_path=section_name, progress=CloneProgress(), branch=branch)
+
+                child_node = TreeNode(f"{section_name} (branch: \x1b[3m {Fore.YELLOW}*{branch}*) {Fore.RESET} {Style.RESET_ALL}")
+                root_tree.add_child(child_node)
+
+            root_tree.print_tree()
+            sys.exit()
+        except requests.exceptions.RequestException as e:
+            print(f"{Fore.RED}requests.exceptions.RequestException: Error While Downloading Config{Fore.RESET}")
+            sys.exit(1)
+
+    else:
+        try:
+            with open("GInz.toml") as config_file:
+                config = toml.load(config_file)
+        except:
+            print(f"{Back.RED}Error:{Back.RESET} GInz.toml not found")
+            sys.exit(1)
+
+    for section_name, section in config.items():
+        branch = section.get("branch")
+        if branch is None:
+            branch = "main"
+        repo = Repo.clone_from(url=section.get("source"), to_path=section_name, progress=CloneProgress(), branch=branch)
+
+        child_node = TreeNode(f"{section_name} (branch: \x1b[3m {Fore.YELLOW}*{branch}*) {Fore.RESET} {Style.NORMAL}")
+        root_tree.add_child(child_node)
 
     root_tree.print_tree()
