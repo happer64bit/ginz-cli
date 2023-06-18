@@ -1,4 +1,3 @@
-import os
 import sys
 import toml
 import argparse
@@ -7,9 +6,7 @@ from tqdm import tqdm
 from git import Repo, RemoteProgress, cmd
 from colorama import Fore, Style, Back
 
-import tree
-
-TreeNode = tree.TreeNode
+from ginz.tree import TreeNode
 
 class CloneProgress(RemoteProgress):
     def __init__(self):

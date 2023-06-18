@@ -5,7 +5,7 @@ with open("README.md") as file:
 
 setup(
    name='ginz',
-   version='1.0',
+   version='1.1',
    license="MIT",
    description='Ginz is a command-line utility that simplifies the process of cloning multiple repositories from GitHub by allowing you to specify the repositories and their branches in a single configuration file.',
    author='Happer64Bit',
