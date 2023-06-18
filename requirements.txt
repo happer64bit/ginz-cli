@@ -2,4 +2,4 @@ toml
 colorama
 gitpython
 tqdm
-request
+requests

@@ -23,7 +23,7 @@ jobs:
       run: pip install git+https://github.com/happer64bit/ginz-cli#egg=ginz
     
     - name: Installion Some Dependencies
-      run: pip install tqdm && pip install GitPython
+      run: pip install tqdm && pip install GitPython && pip install requests
     
     - name: Run the pip package
       run: python -m ginz --config-url https://raw.githubusercontent.com/happer64bit/happer64bit/main/Ginz.toml
