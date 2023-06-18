@@ -21,6 +21,9 @@ jobs:
 
     - name: Install dependencies
       run: pip install git+https://github.com/happer64bit/ginz-cli#egg=ginz
-
+    
+    - name: Installion Some Dependencies
+      run: pip install tqdm
+    
     - name: Run the pip package
       run: python -m ginz
