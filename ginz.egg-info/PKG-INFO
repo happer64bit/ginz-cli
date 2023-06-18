@@ -2,9 +2,11 @@ Metadata-Version: 2.1
 Name: ginz
 Version: 1.1
 Summary: Ginz is a command-line utility that simplifies the process of cloning multiple repositories from GitHub by allowing you to specify the repositories and their branches in a single configuration file.
+Home-page: https://github.com/happer64bit/ginz-cli
 Author: Happer64Bit
 Author-email: happer64bit@gmail.com
 License: MIT
+Description-Content-Type: text/markdown
 License-File: LICENSE
 
 # Ginz
