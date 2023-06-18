@@ -26,4 +26,4 @@ jobs:
       run: pip install tqdm && pip install GitPython && pip install requests
     
     - name: Run the pip package
-      run: python -m ginz --config-url https://raw.githubusercontent.com/happer64bit/happer64bit/main/Ginz.toml
+      run: python -m ginz --version
