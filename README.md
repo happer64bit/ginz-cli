@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/happer64bit/ginz-cli/main/assets/ginz.webp)
+![Logo](https://raw.githubusercontent.com/happer64bit/ginz-cli/dev/assets/ginz.webp)
 
 # Ginz
 
